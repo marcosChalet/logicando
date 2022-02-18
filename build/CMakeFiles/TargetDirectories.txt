@@ -1,4 +1,0 @@
-/home/marcos/Documentos/Programar/C++/LogicCalc/LogicApp/build/CMakeFiles/LogicCalc.dir
-/home/marcos/Documentos/Programar/C++/LogicCalc/LogicApp/build/CMakeFiles/edit_cache.dir
-/home/marcos/Documentos/Programar/C++/LogicCalc/LogicApp/build/CMakeFiles/rebuild_cache.dir
-/home/marcos/Documentos/Programar/C++/LogicCalc/LogicApp/build/CMakeFiles/LogicCalc_autogen.dir
