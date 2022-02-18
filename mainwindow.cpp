@@ -136,41 +136,7 @@ void MainWindow::on_button_u_clicked()
 
 void MainWindow::on_button_enter_clicked()
 {
-
-    //string::iterator end_pos = std::remove(result.begin(), result.end(), ' ');
-    //result.erase(end_pos, result.end());
-
-
     ui->label_result->setText(QString::fromStdString(output_formula(aux)));
     ui->tabWidget->setCurrentIndex(1);
-
-
-/*
-    list<string> lst;
-    string mostrar;
-    lst.push_back(aux);
-
-    if(is_valid(aux)){
-        separates_formulas(&lst, aux, aux.length(), 0);
-
-        mostrar = "\n\t[ SUB-FORMULAS! ]\n\n";
-        for(auto const &i: lst){
-            mostrar += ("[ " + i + " ]\n");
-        }
-
-        ui->label_result->setText(QString::fromStdString(mostrar));
-        ui->tabWidget->setCurrentIndex(1);
-        mostrar = "";
-    }else{
-        mostrar = "NOT A WFF!";
-        ui->label_result->setText(QString::fromStdString(mostrar));
-        ui->tabWidget->setCurrentIndex(1);
-
-        formula = "";
-        aux = "";
-        ui->label_formula->setText(QString::fromStdString(formula));
-
-    }
-*/
 }
 
