@@ -13,7 +13,9 @@ Install the dependencies first.
 
 
 ```sh
-cd logicando/build
+clone project and enter it
+mkdir build
+cd build
 cmake -Wno-dev ../
 make
 ./LogicCalc
