@@ -1,5 +1,20 @@
-#include "str_label.hh"
+#include "strlabel.hh"
 #include <iomanip>
+
+void insert_operator(string formula, string &output, int x){
+    if(formula[x] >= 'a' && formula[x] <= 'z')
+        output += (formula[x]-32+' ');
+    else if(formula[x] == '>')
+        output.append("→");
+    else if(formula[x] == '&')
+        output.append("∧");
+    else if(formula[x] == '#')
+        output.append("∨");
+    else if(formula[x] == '-')
+        output.append("¬");
+    else
+        output += (formula[x]);
+}
 
 string output_formula(const string formula){
 
@@ -7,10 +22,16 @@ string output_formula(const string formula){
     list<string> lst;
     int lines, columns, columns_atoms;
 
+
+    output = "\n\t[ ";
+    for(int i = 0; i < formula.length(); i++){
+        insert_operator(formula, output, i);
+    }
+
     if(is_valid(formula)){
-        output = "\n\t[ " + formula + " ] is WWF\n\n";
+        output += " ] is WWF\n\n";
     }else{
-        output = "\n\t[ " + formula + " ] is invalid\n\n";
+        output += " ] is invalid\n\n";
         return output;
     }
 
@@ -23,7 +44,10 @@ string output_formula(const string formula){
     columns_atoms = calc_columns_atoms(lst);
 
     for(auto const &i: lst){
-        output += (i + ' ');
+        for(int j = 0; j < i.length(); j++){
+            insert_operator(i, output, j);
+        }
+        output.append("  ");
     }
     output += '\n';
 
@@ -31,21 +55,20 @@ string output_formula(const string formula){
     for(int i = 0; i < lines; i++){
         a = lst.begin();
         for(int j = 0; j < columns; j++) {
-            if(j < columns_atoms) {
-                if(matrix[i][j] == 0)
-                    output += 'F';
-                else
-                    output += 'V';
-
-                output.insert(output.length(), (*a).length(), ' ');
-            }else{
+            if(j < columns_atoms-1) {
                 if(matrix[i][j] == 0)
                     output += 'F';
                 else
                     output += 'V';
 
                 output.insert(output.length(), (*a).length()+1, ' ');
+            }else{
+                if(matrix[i][j] == 0)
+                    output += 'F';
+                else
+                    output += 'V';
 
+                output.insert(output.length(), 2*(*a).length()+1, ' ');
             }
            a++;
         }

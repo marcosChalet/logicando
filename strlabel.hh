@@ -1,5 +1,5 @@
-#ifndef _STR_LABEL_H
-#define _STR_LABEL_H
+#ifndef _STRLABEL_H
+#define _STRLABEL_H
 
 #include "truth_table.hh"
 
