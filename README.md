@@ -13,7 +13,7 @@ Install the dependencies first.
 
 
 ```sh
-clone project and open it
+clone and open the project
 mkdir build
 cd build
 cmake -Wno-dev ../
