@@ -1,5 +1,5 @@
 # Logicando
-## _Logic calculator_
+
 Logic calculator that crate an truth table in C++.
 
 
